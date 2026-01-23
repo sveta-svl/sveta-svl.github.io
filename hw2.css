@@ -1,0 +1,44 @@
+/* Entire XML document background */
+books {
+    background-color: lightgray;
+}
+
+/* Each book displayed one below the other */
+book {
+    display: block;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+}
+
+/* Book titles bold and red */
+name {
+    font-weight: bold;
+    color: red;
+    display: block;
+    margin-bottom: 4px;
+}
+
+author {
+    display: block;
+    margin-bottom: 4px;
+}
+
+author::before {
+  content: "Author: ";
+  font-weight: bold;
+}
+
+publisher {
+    display: block;
+}
+
+publisher::before {
+  content: "Publisher: ";
+  font-weight: bold;
+}
+
+/* Odd-numbered books have light blue background */
+book:nth-child(odd) {
+    background-color: #add8e6; /* light blue */
+}
