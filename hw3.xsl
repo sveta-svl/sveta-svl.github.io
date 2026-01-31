@@ -40,16 +40,17 @@
             <th>Account Total</th>
           </tr>
 
-          <xsl:for-each select="clients/client">
+          <xsl:for-each select="Accounts/Client">
             <tr>
               <td>
-                <xsl:value-of select="name"/>
+                <xsl:value-of select="Name/First"/>
+                <xsl:value-of select="Name/Last"/>
               </td>
               <td>
-                <xsl:value-of select="phone"/>
+                <xsl:value-of select="Phone"/>
               </td>
               <td>
-                <xsl:value-of select="email"/>
+                <xsl:value-of select="Email"/>
               </td>
               <td class="right">
                 <xsl:choose>
