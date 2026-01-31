@@ -50,17 +50,17 @@
                 <xsl:value-of select="Phone"/>
               </td>
               <td>
-                <xsl:value-of select="Email"/>
+                <xsl:value-of select="E-mail"/>
               </td>
               <td class="right">
                 <xsl:choose>
-                  <xsl:when test="account_total &lt;= 80000">
+                  <xsl:when test="Account_Total &lt;= 80000">
                     <span class="low">
-                      $<xsl:value-of select="account_total"/>
+                      $<xsl:value-of select="Account_Total"/>
                     </span>
                   </xsl:when>
                   <xsl:otherwise>
-                    $<xsl:value-of select="account_total"/>
+                    $<xsl:value-of select="Account_Total"/>
                   </xsl:otherwise>
                 </xsl:choose>
               </td>
