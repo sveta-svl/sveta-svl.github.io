@@ -53,14 +53,15 @@
                 <xsl:value-of select="E-mail"/>
               </td>
                 <td class="right">
+                  <xsl:variable name="amt"
+                    select="number(translate(Account_Total, ' &#xA;&#xD;&#x9;', ''))"/>
+
                   <xsl:choose>
-                    <xsl:when test="number(normalize-space(Account_Total)) &lt;= 80000">
-                      <span class="low">
-                        $<xsl:value-of select="normalize-space(Account_Total)"/>
-                      </span>
+                    <xsl:when test="$amt &lt;= 80000">
+                      <span class="low">$<xsl:value-of select="$amt"/></span>
                     </xsl:when>
                     <xsl:otherwise>
-                      $<xsl:value-of select="normalize-space(Account_Total)"/>
+                      $<xsl:value-of select="$amt"/>
                     </xsl:otherwise>
                   </xsl:choose>
                 </td>
