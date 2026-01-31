@@ -54,9 +54,9 @@
               </td>
               <td class="right">
                 <xsl:choose>
-                  <xsl:when test="Account_Total &lt;= 80000">
+                  <xsl:when test="number(normalize-space(Account_Total)) &lt;= 80000">
                     <span class="low">
-                      $<xsl:value-of select="Account_Total"/>
+                      $<xsl:value-of select="normalize-space(Account_Total)"/>
                     </span>
                   </xsl:when>
                   <xsl:otherwise>
