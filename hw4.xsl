@@ -20,7 +20,7 @@
         <h1>ABC Financial Startup</h1>
 
         <!-- Company Image (centered) -->
-        <img src="../CNIT131AFiles/financialstartup.jpg" alt="ABC Financial Startup" class="centerimg" />
+        <img src="financialstartup.jpg" alt="ABC Financial Startup" class="centerimg" />
 
         <!-- Introductory paragraph -->
         <p>We are a very young financial manager company and we are proud of our clients.</p>
