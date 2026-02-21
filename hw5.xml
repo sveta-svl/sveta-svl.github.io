@@ -1,5 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE Products SYSTEM "hw5.dtd">
+<!DOCTYPE Products [
+    <!-- Entity Declaration for "Made in USA" phrase -->
+    <!ENTITY madeInUSA "Made in USA">
+    
+    <!-- Root Element: Products must contain at least one Prod element -->
+    <!ELEMENT Products (Prod+)>
+    
+    <!-- Product Element with required ProdID attribute -->
+    <!ELEMENT Prod (Details, Quantity, Unit_Price, Color?, Loc)>
+    <!ATTLIST Prod 
+        ProdID ID #REQUIRED
+    >
+    
+    <!-- Details Element: contains product information -->
+    <!ELEMENT Details (Short_Desc, Long_Desc)>
+    
+    <!-- Short Description Element -->
+    <!ELEMENT Short_Desc (#PCDATA)>
+    
+    <!-- Long Description Element -->
+    <!ELEMENT Long_Desc (#PCDATA)>
+    
+    <!-- Quantity Element: number of items in stock -->
+    <!ELEMENT Quantity (#PCDATA)>
+    
+    <!-- Unit Price Element: price per item -->
+    <!ELEMENT Unit_Price (#PCDATA)>
+    
+    <!-- Color Element: optional product color attribute -->
+    <!ELEMENT Color (#PCDATA)>
+    
+    <!-- Location/Origin Element: must contain "Made in USA" -->
+    <!ELEMENT Loc (#PCDATA)>
+]>
 
 <Products>
     <Prod ProdID="P00129934">
