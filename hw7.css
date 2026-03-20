@@ -4,59 +4,45 @@
 states {
   display: block;
   font-family: Arial, sans-serif;
-  font-size: 16px;
-  padding: 20px;
-  background-color: #f9f9f9;
+  font-size: 14px;
+  width: 400px;
+  border: 1px solid #999;
 }
 
-/* West states - default namespace */
+/* West states - default namespace, gray background */
 state {
   display: block;
-  margin: 8px 0;
-  padding: 10px 15px;
-  background-color: #d0e8f5;
-  border: 1px solid #5a9fc0;
-  border-radius: 4px;
+  background-color: #c0c0c0;
+  padding: 2px 5px;
 }
 
 name {
   display: inline;
-  font-weight: bold;
-  color: #1a4f6e;
 }
 
 capital {
   display: inline;
-  color: #333;
 }
 
 capital::before {
-  content: " — Capital: ";
-  color: #555;
+  content: " ";
 }
 
-/* East states - prefixed namespace */
+/* East states - prefixed namespace, cyan background */
 east|state {
   display: block;
-  margin: 8px 0;
-  padding: 10px 15px;
-  background-color: #d4f0d4;
-  border: 1px solid #5aa05a;
-  border-radius: 4px;
+  background-color: cyan;
+  padding: 2px 5px;
 }
 
 east|name {
   display: inline;
-  font-weight: bold;
-  color: #1a4e1a;
 }
 
 east|capital {
   display: inline;
-  color: #333;
 }
 
 east|capital::before {
-  content: " — Capital: ";
-  color: #555;
+  content: " ";
 }

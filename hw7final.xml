@@ -3,20 +3,6 @@
 <states xmlns="http://www.gov.org/west"
         xmlns:east="http://www.gov.org/east">
 
-  <!-- West States -->
-  <state>
-    <name>California</name>
-    <capital>Sacramento</capital>
-  </state>
-  <state>
-    <name>Washington</name>
-    <capital>Olympia</capital>
-  </state>
-  <state>
-    <name>Oregon</name>
-    <capital>Salem</capital>
-  </state>
-
   <!-- East States -->
   <east:state>
     <east:name>Florida</east:name>
@@ -30,5 +16,19 @@
     <east:name>North Carolina</east:name>
     <east:capital>Raleigh</east:capital>
   </east:state>
+
+  <!-- West States -->
+  <state>
+    <name>California</name>
+    <capital>Sacramento</capital>
+  </state>
+  <state>
+    <name>Oregon</name>
+    <capital>Salem</capital>
+  </state>
+  <state>
+    <name>Washington</name>
+    <capital>Olympia</capital>
+  </state>
 
 </states>
