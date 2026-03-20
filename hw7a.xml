@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<states xmlns="http://www.gov.org/east">
+  <state>
+    <name>Florida</name>
+	<capital>Tallahassee</capital>
+  </state>
+  <state>  
+	<name>Maryland</name>
+	<capital>Annapolis</capital>
+  </state>
+  <state>
+	<name>North Carolina</name>
+	<capital>Raleigh</capital>
+  </state>
+</states>

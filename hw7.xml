@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<states xmlns="http://www.gov.org/west">
+  <state>
+    <name>California</name>
+	<capital>Sacramento</capital>
+  </state>
+  <state>  
+	<name>Washington</name>
+	<capital>Olympia</capital>
+  </state>
+  <state>
+	<name>Oregon</name>
+	<capital>Salem</capital>
+  </state>
+</states>
