@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Homework 8 - XQuery Report</title>
+    <meta name="description" content="XQuery Report for CNIT 131A: XML and JSON">
+
+    <style>
+        body {
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            margin-left: 10%;
+            margin-right: 10%;
+            line-height: 1.7;
+            color: #333;
+        }
+
+        header, nav, main, footer {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 15px;
+        }
+
+        h1, h2, h3 {
+            color: #0056b3;
+            text-align: center;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        p {
+            color: #333;
+            text-align: left;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        pre {
+            background-color: #f0f4f8;
+            border-left: 4px solid #0056b3;
+            padding: 14px 18px;
+            font-size: 14px;
+            overflow-x: auto;
+            text-align: left;
+            border-radius: 4px;
+        }
+
+        .result-box {
+            background-color: #e8f5e9;
+            border-left: 4px solid #388e3c;
+            padding: 12px 18px;
+            font-family: monospace;
+            font-size: 14px;
+            text-align: left;
+            border-radius: 4px;
+        }
+
+        ol {
+            text-align: left;
+        }
+
+        .references {
+            text-align: left;
+        }
+
+        .references li {
+            margin-bottom: 6px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Portfolio for CNIT 131A: XML and JSON</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="hw2.xml">Homework 2</a></li>
+            <li><a href="hw3.xml">Homework 3</a></li>
+            <li><a href="hw4.xml">Homework 4</a></li>
+            <li><a href="hw5.xml">Homework 5</a></li>
+            <li><a href="hw6.xml">Homework 6</a></li>
+            <li><a href="hw7final.xml">Homework 7</a></li>
+            <li><a href="hw8.html">Homework 8</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Homework 8: Understanding XQuery</h2>
+
+        <section>
+            <h3>What Is XQuery?</h3>
+            <p>
+                XQuery is a powerful, W3C-standardized query language designed to retrieve and
+                manipulate data stored in XML format. Much like how SQL is used to query relational
+                databases, XQuery is used to query XML documents and databases. It was developed to
+                address the growing need for a standardized way to extract, filter, and transform
+                XML data efficiently. XQuery is both a functional programming language and a query
+                language: it can navigate through XML trees using XPath expressions, apply
+                conditions to filter results, and construct entirely new XML or HTML output from
+                the queried data. It is widely supported by XML-native databases such as
+                BaseX, eXist-db, and MarkLogic, as well as by many enterprise data systems that
+                rely on XML for data exchange.
+            </p>
+            <p>
+                A key characteristic of XQuery is its use of FLWOR expressions, an acronym for
+                <strong>For, Let, Where, Order by, Return</strong>. This structure closely mirrors
+                the SELECT-FROM-WHERE pattern familiar from SQL, making it approachable for
+                developers with a database background. The <em>for</em> clause iterates over a
+                sequence of nodes, <em>let</em> binds variables, <em>where</em> filters results
+                based on a condition, <em>order by</em> sorts the output, and <em>return</em>
+                specifies what to output for each matched item. XQuery also supports built-in
+                functions for string manipulation, arithmetic, date handling, and more, making
+                it a complete solution for XML data processing.
+            </p>
+        </section>
+
+        <section>
+            <h3>Analysis of the Course Files: hw8.xml and hw8.xq</h3>
+            <p>
+                The course file <strong>hw8.xml</strong> represents a small bookstore catalog.
+                It contains five <code>&lt;book&gt;</code> elements nested inside a root
+                <code>&lt;bookstore&gt;</code> element. Each book has a <code>category</code>
+                attribute (either "coding" or "children"), a <code>&lt;title&gt;</code> with a
+                language attribute, one or more <code>&lt;author&gt;</code> elements, and a
+                <code>&lt;price&gt;</code> element. The prices range from $5.89 to $48.99.
+            </p>
+            <p>
+                The accompanying XQuery file <strong>hw8.xq</strong> contains the following query:
+            </p>
+            <pre>xquery version "1.0";
+
+for $b in
+   doc("hw8.xml")/bookstore/book
+
+where
+   $b/price &lt; 30
+
+return $b/title</pre>
+            <p>
+                This query uses a FLWOR expression to filter the bookstore data. The
+                <code>for</code> clause iterates over every <code>&lt;book&gt;</code> element
+                found inside <code>&lt;bookstore&gt;</code> in <em>hw8.xml</em>, binding each
+                one to the variable <code>$b</code>. The <code>where</code> clause applies a
+                filter, keeping only books whose <code>&lt;price&gt;</code> value is less than
+                30. Finally, the <code>return</code> clause outputs the <code>&lt;title&gt;</code>
+                element of each book that passes the filter. When executed against hw8.xml, the
+                query produces the following result, since only two books have a price below $30:
+            </p>
+            <div class="result-box">
+                &lt;title lang="en"&gt;Harry Potter&lt;/title&gt;<br>
+                &lt;title lang="en"&gt;The Snowy Days&lt;/title&gt;
+            </div>
+            <p>
+                This example demonstrates the practical value of XQuery in a business context.
+                Rather than manually scanning an XML file, a single short query can instantly
+                extract exactly the information needed — in this case, a list of affordable books
+                priced under $30. In a real-world scenario, the same approach could be applied to
+                large product catalogs, inventory systems, or any XML-based data source to
+                generate filtered reports on demand.
+            </p>
+        </section>
+
+        <section>
+            <h3>XQIB: Running XQuery in the Browser</h3>
+            <p>
+                XQIB (XQuery in the Browser) is a free, web-based tool that allows users to write
+                and execute XQuery expressions directly in a web browser without installing any
+                software. It provides a split-panel interface where you can paste or type your XML
+                document on one side and write your XQuery code on the other, then run the query
+                and view the results instantly. This makes XQIB particularly useful for learning,
+                testing, and demonstrating XQuery concepts in an educational or exploratory setting.
+            </p>
+            <p>
+                To use XQIB with the course files, a user would paste the contents of
+                <em>hw8.xml</em> into the XML input panel and enter the query from <em>hw8.xq</em>
+                into the XQuery panel. After clicking the "Run" button, XQIB processes the FLWOR
+                expression against the XML data and displays the matching <code>&lt;title&gt;</code>
+                elements in the output panel. Because XQIB runs entirely in the browser using
+                JavaScript-based XQuery processing, it requires no server setup and is accessible
+                to anyone with a modern web browser. It is available at
+                <a href="http://xqib.org" target="_blank" rel="noopener noreferrer">xqib.org</a>
+                and serves as a practical companion tool for anyone studying or working with XQuery.
+            </p>
+        </section>
+
+        <section>
+            <h3>References</h3>
+            <ol class="references">
+                <li>
+                    W3Schools. (n.d.). <em>XQuery Tutorial</em>.
+                    <a href="https://www.w3schools.com/xml/xquery_intro.asp" target="_blank" rel="noopener noreferrer">
+                        https://www.w3schools.com/xml/xquery_intro.asp
+                    </a>
+                </li>
+                <li>
+                    W3C. (2010). <em>XQuery 1.0: An XML Query Language (Second Edition)</em>.
+                    <a href="https://www.w3.org/TR/xquery/" target="_blank" rel="noopener noreferrer">
+                        https://www.w3.org/TR/xquery/
+                    </a>
+                </li>
+                <li>
+                    XQIB. (n.d.). <em>XQuery in the Browser</em>.
+                    <a href="http://xqib.org" target="_blank" rel="noopener noreferrer">
+                        http://xqib.org
+                    </a>
+                </li>
+                <li>
+                    BaseX Documentation. (n.d.). <em>XQuery Basics</em>.
+                    <a href="https://docs.basex.org/wiki/XQuery" target="_blank" rel="noopener noreferrer">
+                        https://docs.basex.org/wiki/XQuery
+                    </a>
+                </li>
+            </ol>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Portfolio by Svitlana Lataiko</p>
+    </footer>
+</body>
+</html>
